@@ -22,4 +22,5 @@ namespace ChocAn.Models
                 City + ", " + State + " " + ZipToString;
         }
     }
+
 }

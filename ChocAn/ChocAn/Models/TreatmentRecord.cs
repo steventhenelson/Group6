@@ -30,4 +30,5 @@ namespace ChocAn.Models
             return Member + "\n" + Service + "\n" + EntryDateString;
         }
     }
+
 }

@@ -1,15 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.Entity;
+using ChocAn.EfData;
+using ChocAn.UiLogic;
 
 namespace ChocAn
 {
     class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
+           
         }
     }
 }

@@ -10,7 +10,22 @@ using ChocAn.Models;
 namespace ChocAn.EfData
 {
     public class ChocAnDb : DbContext
-    {      
-       
+    {
+        // set up the tables using our object class models
+        public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<TreatmentRecord> TreatmentRecords { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            // set the table name properties. i just do this to stop the double pluralizing. just a pet peeve really
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            // so SQL has had several different types of 'date-time' fields to pick from. .net and SQl don't seem to line up
+            // so smoothly with dates so for every date property in the class, i use these lines to force a specific datetime type
+            // in the SQL tables to match. 
+            modelBuilder.Entity<TreatmentRecord>().Property(p => p.EntryDate).HasColumnType("datetime2");
+            modelBuilder.Entity<TreatmentRecord>().Property(p => p.TreatmentDate).HasColumnType("datetime2");
+        }
     }
 }

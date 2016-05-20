@@ -209,7 +209,7 @@ namespace ConsoleUi.UiLogic {
             string dateString;
 
             do {
-                dateString = GetStringFromUser(message + " [DD-MM-YYY]: ", autofill);
+                dateString = GetStringFromUser(message + " [DD-MM-YYYY]: ", autofill);
             } while (!regex.Match(dateString).Success || !DateTime.TryParse(dateString, out result));
 
             return result;

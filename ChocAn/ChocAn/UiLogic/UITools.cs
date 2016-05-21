@@ -9,7 +9,7 @@ using ConsoleUi.Repositories;
 namespace ConsoleUi.UiLogic {
     public class UiTools {
         // Method to read a menu choice from the user. Int min is the lowest number of user entry options. Int max
-        // is the upper bound of options for the menu being used and the the string is used to display as a prompt.
+        // is the upper bound of options for the menu being used and the string is used to display as a prompt.
         // If no string is given, it defaults to ": " and returns the valid choice selected by the user.
         protected int GetIntegerFromUser(int min = 0, int max = 0, string message = ": ", string autofill = "") {
             int choice = 0;
@@ -98,7 +98,7 @@ namespace ConsoleUi.UiLogic {
             return result;
         }
 
-        // Method to get a valid service id from the console. Accepts a string for prompt message and a string for autofill;
+        // Method to get a valid service id from the console. Accepts a string for prompt message and a string for auto-fill;
         // both being optional. Returns the service id if it exits.
         protected int GetServiceIdFromUser(string message = ": ", string autofill = "") {
             int result = 0;
@@ -168,7 +168,7 @@ namespace ConsoleUi.UiLogic {
             else return "";
         }
 
-        // Method to get a valid state input from the user. Accepts a string for prompt message and optional string for autofill.
+        // Method to get a valid state input from the user. Accepts a string for prompt message and optional string for auto-fill.
         // Returns the state in all caps
         protected string GetStateFromUser(string message = ": ", string autofill = "") {
             string[] states = {
@@ -199,18 +199,18 @@ namespace ConsoleUi.UiLogic {
             return GetIntegerFromUser(1, options.Length);
         }
 
-        // Method to get a valid date from user input. Accepts a string for message prompt and a string for autofill. Both
+        // Method to get a valid date from user input. Accepts a string for message prompt and a string for auto-fill. Both
         // are optional. Returns the date
         protected DateTime GetDateFromUser(string message = ": ", string autofill = "") {
-            Regex regex =
-                new Regex(
-                        @"^(((((((0?[13578])|(1[02]))[\.\-/]?((0?[1-9])|([12]\d)|(3[01])))|(((0?[469])|(11))[\.\-/]?((0?[1-9])|([12]\d)|(30)))|((0?2)[\.\-/]?((0?[1-9])|(1\d)|(2[0-8]))))[\.\-/]?(((19)|(20))?([\d][\d]))))|((0?2)[\.\-/]?(29)[\.\-/]?(((19)|(20))?(([02468][048])|([13579][26])))))$");
+            //Regex regex =
+            //    new Regex(
+            //            @"^(((((((0?[13578])|(1[02]))[\.\-/]?((0?[1-9])|([12]\d)|(3[01])))|(((0?[469])|(11))[\.\-/]?((0?[1-9])|([12]\d)|(30)))|((0?2)[\.\-/]?((0?[1-9])|(1\d)|(2[0-8]))))[\.\-/]?(((19)|(20))?([\d][\d]))))|((0?2)[\.\-/]?(29)[\.\-/]?(((19)|(20))?(([02468][048])|([13579][26])))))$");
             DateTime result;
             string dateString;
 
             do {
                 dateString = GetStringFromUser(message + " [DD-MM-YYYY]: ", autofill);
-            } while (!regex.Match(dateString).Success || !DateTime.TryParse(dateString, out result));
+            } while (/*!regex.Match(dateString).Success || */!DateTime.TryParse(dateString, out result));
 
             return result;
         }

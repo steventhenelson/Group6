@@ -4,9 +4,9 @@ using System.Linq;
 using System.Security.AccessControl;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using ConsoleUi.Repositories;
+using ChocAn.Repositories;
 
-namespace ConsoleUi.UiLogic {
+namespace ChocAn.UiLogic {
     public class UiTools {
         // Method to read a menu choice from the user. Int min is the lowest number of user entry options. Int max
         // is the upper bound of options for the menu being used and the string is used to display as a prompt.

@@ -1,7 +1,7 @@
-using ConsoleUi.Models;
-using ConsoleUi.Repositories;
+using ChocAn.Models;
+using ChocAn.Repositories;
 
-namespace ConsoleUi.UiLogic
+namespace ChocAn.UiLogic
 {
     public class UserSession
     {

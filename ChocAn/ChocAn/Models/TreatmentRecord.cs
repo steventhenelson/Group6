@@ -20,7 +20,7 @@ namespace ChocAn.Models
         public DateTime EntryDate { get; set; }
 
         [NotMapped]
-        public string EntryDateString => $"{EntryDate:MM-dd-yyy}";
+        public string EntryDateString => $"{EntryDate:MM-DD-YYYY}";
 
         [StringLength(maximumLength: 255)]
         public string Comments { get; set; }
